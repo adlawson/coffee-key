@@ -74,4 +74,4 @@ getTestCommand = (options = {}) ->
   options.ui ?= 'tdd'
   options.reporter ?= 'spec'
   options.path ?= paths.unitTest
-  "#{paths.nodebin}/mocha --compilers coffee:coffee-script --ui #{options.ui} --reporter #{options.reporter} --globals jQuery,$ --colors --recursive #{options.path}"
+  "#{paths.nodebin}/mocha --compilers coffee:coffee-script --ui #{options.ui} --reporter #{options.reporter} --colors --recursive #{options.path}"
