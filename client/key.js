@@ -399,6 +399,7 @@ require.define("/ref.coffee",function(require,module,exports,__dirname,__filenam
   Reference = (function() {
 
     function Reference(name, code) {
+      this.name = name;
       this.code = code;
     }
 

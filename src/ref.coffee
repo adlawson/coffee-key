@@ -9,7 +9,7 @@ class Reference
   #
   # @param [String] name
   # @param [Number] code
-  constructor: (name, @code) ->
+  constructor: (@name, @code) ->
 
 
 # Create a new reference
