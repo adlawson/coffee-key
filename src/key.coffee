@@ -11,6 +11,7 @@ ns = {}
 
 # Keycodes
 ns.code =
+  special: require './code/special'
   alnum: require './code/alnum'
 
 
