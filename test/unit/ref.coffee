@@ -2,7 +2,6 @@
 
 # Dependencies
 {assert} = require 'chai'
-{spy} = require 'sinon'
 {mockRef} = require '../mock/ref'
 
 

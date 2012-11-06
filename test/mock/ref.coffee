@@ -2,7 +2,6 @@
 
 
 # Dependencies
-{spy} = require 'sinon'
 {ref} = require '../../src/ref'
 
 
