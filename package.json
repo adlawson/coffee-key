@@ -1,6 +1,6 @@
 {
   "name": "key",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "license": "MIT",
   "description": "A tiny little keycode library",
   "keywords": [
