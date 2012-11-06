@@ -28,6 +28,11 @@ desc 'Build the project'
 task 'build', ['lint', 'test', 'compile', 'bundle', 'minify']
 
 
+# CI build
+desc 'Continuously integrate'
+task 'ci', ['lint', 'test']
+
+
 # Bundle
 desc 'Bundle client side JavaScript'
 task 'bundle', ->
