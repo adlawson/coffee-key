@@ -18,7 +18,7 @@ ns.code =
 # Get pressed key information
 #
 # @param [Number] pressed
-# @return [Object]
+# @return [Reference]
 ns.get = (pressed) =>
   iterator = (context) ->
     for own key, ref of context
