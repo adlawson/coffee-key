@@ -524,7 +524,7 @@ require.define("/key.coffee",function(require,module,exports,__dirname,__filenam
   ns.get = function(pressed) {
     var iterator;
     iterator = function(context) {
-      var key, ref;
+      var key, out, ref;
       for (key in context) {
         if (!__hasProp.call(context, key)) continue;
         ref = context[key];
@@ -533,7 +533,10 @@ require.define("/key.coffee",function(require,module,exports,__dirname,__filenam
             return ref;
           }
         } else {
-          return iterator(ref);
+          out = iterator(ref);
+          if (isRef(out)) {
+            return out;
+          }
         }
       }
     };

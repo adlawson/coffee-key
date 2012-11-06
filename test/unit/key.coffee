@@ -18,6 +18,9 @@ suite 'key:', ->
           c: mockRef 'c', 3
         }
       }
+      baz: {
+        d: mockRef 'd', 4
+      }
 
 
   suite 'exports:', ->
@@ -44,6 +47,9 @@ suite 'key:', ->
     test '3 is foo.bar.c', ->
       assert.strictEqual key.code.foo.bar.c, (key.get 3)
 
+    test '4 is baz.d', ->
+      assert.strictEqual key.code.baz.d, (key.get 4)
+
 
   suite 'is:', ->
     test '1 is foo.a', ->
@@ -54,3 +60,6 @@ suite 'key:', ->
 
     test '3 is foo.bar.c', ->
       assert.isTrue (key.is key.code.foo.bar.c, 3)
+
+    test '4 is baz.d', ->
+      assert.isTrue (key.is key.code.baz.d, 4)

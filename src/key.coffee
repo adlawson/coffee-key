@@ -24,7 +24,9 @@ ns.get = (pressed) =>
     for own key, ref of context
       if isRef ref
         return ref if ns.is ref, pressed
-      else return iterator ref
+      else
+        out = iterator ref
+        return out if isRef out
   iterator ns.code
 
 
