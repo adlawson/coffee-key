@@ -2,13 +2,39 @@
 
     $.fn.demo = function () {
 
-        var alert = $(this);
 
-        $(window).on('keyup', function(event) {
+        settings = {
+            alert: '[data-role="alert"] span',
+            debug: '[data-role="debug"]',
+            input: '[data-role="input"]'
+        };
+
+
+        var container = $(this);
+        var alert = container.find(settings.alert).eq(0);
+        var debug = container.find(settings.debug).eq(0);
+        var input = container.find(settings.input).eq(0);
+
+
+        // Update feedback info
+        var feedback = function(event) {
             event.preventDefault();
 
             var pressed = key.get(event.which);
-            alert.text(pressed ? pressed.code : 'Undefined');
+
+            alert.text(pressed ? '"' + pressed.name + '"' : 'Undefined');
+            debug.html(pressed ? JSON.stringify(pressed) : '<a href="">Send us a pull request</a> to add this key to the library');
+        };
+
+
+        // Listen to most keys on keyup
+        $(input).on('keyup', feedback);
+
+        // Some keys should be listened to on keydown
+        $(input).on('keydown', function(event) {
+            if (key.is(key.code.special.tab, event.which)) {
+                feedback(event);
+            }
         });
 
     };
