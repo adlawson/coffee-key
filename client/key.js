@@ -544,7 +544,11 @@ require.define("/key.coffee",function(require,module,exports,__dirname,__filenam
     return pressed === assertRef(ref).code;
   };
 
-  module.exports = ns;
+  if (!(typeof module !== "undefined" && module !== null) && typeof window !== 'undefined') {
+    window.key = ns;
+  } else {
+    module.exports = ns;
+  }
 
 }).call(this);
 

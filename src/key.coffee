@@ -38,4 +38,7 @@ ns.is = (ref, pressed) =>
 
 
 # Exports
-module.exports = ns
+if not module? and typeof window isnt 'undefined'
+  window.key = ns
+else
+  module.exports = ns
