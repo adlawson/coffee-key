@@ -34,7 +34,7 @@ ns.get = (pressed) =>
 # @param [Number] pressed
 # @return [Boolean]
 ns.is = (ref, pressed) =>
-  pressed in assertRef(ref).codes
+  pressed is assertRef(ref).code
 
 
 # Exports

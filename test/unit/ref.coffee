@@ -25,7 +25,7 @@ suite 'ref:', ->
 
   suite 'ref:', ->
     test 'ref returns a new Reference', ->
-      assert.isObject ref.ref 'foo', [1,2,3]
+      assert.isObject ref.ref 'foo', 1
 
 
   suite 'isRef:', ->
@@ -48,7 +48,7 @@ suite 'ref:', ->
       assert.isFalse ref.isRef true
 
     test 'isRef with a Reference returns true', ->
-      mock = mockRef 'foo', [1,2,3]
+      mock = mockRef 'foo', 1
       assert.isTrue ref.isRef mock
 
 
@@ -72,5 +72,5 @@ suite 'ref:', ->
       assert.throws -> ref.assertRef true
 
     test 'assertRef with a Reference does not throw', ->
-      mock = mockRef 'foo', [1,2,3]
+      mock = mockRef 'foo', 1
       assert.doesNotThrow -> ref.assertRef mock

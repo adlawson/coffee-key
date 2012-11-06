@@ -8,17 +8,17 @@ class Reference
   # Setup the reference
   #
   # @param [String] name
-  # @param [Array] codes
-  constructor: (name, @codes) ->
+  # @param [Number] code
+  constructor: (name, @code) ->
 
 
 # Create a new reference
 #
 # @param [String] name
-# @param [Array] codes
+# @param [Number] code
 # @return [Reference]
-ref = (name, codes) ->
-  new Reference name, codes
+ref = (name, code) ->
+  new Reference name, code
 
 
 # Is the value a valid reference
