@@ -1,6 +1,14 @@
 'use strict'
 
 
+# Key
+#
+# @copyright Andrew Lawson 2012
+# @see http://github.com/adlawson/key
+# @see http://npmjs.org/package/key
+# @see http://opensource.org/licenses/mit-license.php MIT License
+
+
 # Dependencies
 {ref} = require '../ref'
 
