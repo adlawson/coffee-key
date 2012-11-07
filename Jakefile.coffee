@@ -11,6 +11,7 @@ paths =
   bootstrap: './src/key.coffee'
   bundled:   './client/key.js'
   config:    './test/config'
+  integration: './test/integration'
   lib:       './lib'
   minified:  './client/key.min.js'
   npmbin:    './node_modules/.bin'
@@ -71,7 +72,7 @@ task 'minify', ->
 
 # Test
 desc 'Test CoffeeScript source'
-task 'test', ['test:unit']
+task 'test', ['test:unit', 'test:integration']
 namespace 'test', ->
 
   desc 'Unit test CoffeeScript source'
@@ -82,6 +83,16 @@ namespace 'test', ->
     cmd = "#{paths.npmbin}/mocha --compilers coffee:coffee-script --ui #{options.ui} --reporter #{options.reporter} --colors --recursive #{paths.unit}"
     log 'Unit testing...', 'task'
     run [cmd], 'Unit tested successfully', {printStderr:true, printStdout:true, breakOnError:false}
+  , async:true
+
+  desc 'Integration test CoffeeScript source'
+  task 'integration', ->
+    options =
+      reporter: 'spec'
+      ui: 'tdd'
+    cmd = "#{paths.npmbin}/mocha --compilers coffee:coffee-script --ui #{options.ui} --reporter #{options.reporter} --colors --recursive #{paths.integration}"
+    log 'Integration testing...', 'task'
+    run [cmd], 'Integration tested successfully', {printStderr:true, printStdout:true, breakOnError:false}
   , async:true
 
 
