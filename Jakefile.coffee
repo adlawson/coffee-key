@@ -36,7 +36,7 @@ namespace 'compile', ->
 
   desc 'Compile client side styles'
   task 'style', ->
-    cmd = "#{paths.npmbin}/recess #{paths.style.bootstrap} > #{paths.style.compiled}"
+    cmd = "#{paths.npmbin}/lessc #{paths.style.bootstrap} > #{paths.style.compiled}"
     log 'Compiling client side CSS...', 'task'
     run [cmd], 'Compiled successfully', {printStderr:true, breakOnError:true}
   , async:true
