@@ -1,0 +1,9 @@
+{
+  "name": "key-dome",
+  "version": "1.0.0",
+  "private": true,
+
+  "dependencies": {
+    "frag": "1.1.x"
+  }
+}
