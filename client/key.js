@@ -456,6 +456,24 @@ require.define("/code/special.coffee",function(require,module,exports,__dirname,
 
 });
 
+require.define("/code/arrow.coffee",function(require,module,exports,__dirname,__filename,process,global){(function() {
+  'use strict';
+
+  var ref;
+
+  ref = require('../ref').ref;
+
+  module.exports = {
+    left: ref('Left', 37),
+    up: ref('Up', 38),
+    right: ref('Right', 39),
+    down: ref('Down', 40)
+  };
+
+}).call(this);
+
+});
+
 require.define("/code/alnum.coffee",function(require,module,exports,__dirname,__filename,process,global){(function() {
   'use strict';
 
@@ -519,6 +537,7 @@ require.define("/key.coffee",function(require,module,exports,__dirname,__filenam
 
   ns.code = {
     special: require('./code/special'),
+    arrow: require('./code/arrow'),
     alnum: require('./code/alnum')
   };
 
