@@ -22,8 +22,8 @@
 
             var pressed = key.get(event.which);
 
-            alert.text(pressed ? '"' + pressed.name + '"' : 'Undefined');
-            debug.html(pressed ? JSON.stringify(pressed) : '<a href="">Send us a pull request</a> to add this key to the library');
+            alert.html(pressed ? '"' + pressed.name + '"' : '<em>undefined</em>');
+            debug.html(pressed ? JSON.stringify(pressed) : '<a href="https://github.com/adlawson/key/issues">Send a pull request</a> to add this key to the library');
         };
 
 
