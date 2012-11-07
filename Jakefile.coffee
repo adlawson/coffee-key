@@ -22,6 +22,11 @@ desc 'Default task'
 task 'default', ['compile']
 
 
+# CI build
+desc 'Continously integrate'
+task 'ci', ->
+
+
 # Compile
 desc 'Compile client side'
 task 'compile', ['compile:script', 'compile:style']
