@@ -12,14 +12,16 @@ paths =
   script:
     bootstrap: './script/main.coffee'
     compiled:  './script/site.js'
+    minified:  './script/site.min.js'
   style:
     bootstrap: './style/main.less'
     compiled:  './style/site.css'
+    minified:  './style/site.min.css'
 
 
 # Default
 desc 'Default task'
-task 'default', ['compile']
+task 'default', ['compile', 'minify']
 
 
 # CI build
@@ -44,6 +46,26 @@ namespace 'compile', ->
     cmd = "#{paths.npmbin}/lessc #{paths.style.bootstrap} > #{paths.style.compiled}"
     log 'Compiling client side CSS...', 'task'
     run [cmd], 'Compiled successfully', {printStderr:true, breakOnError:true}
+  , async:true
+
+
+# Minify
+desc 'Minify client side'
+task 'minify', ['minify:script', 'minify:style']
+namespace 'minify', ->
+
+  desc 'Minify client side JavaScript'
+  task 'script', ->
+    cmd = "#{paths.npmbin}/uglifyjs --lift-vars -o #{paths.script.minified} #{paths.script.compiled}"
+    log 'Minifying client side JavaScript...', 'task'
+    run [cmd], 'Minified successfully', {printStderr:true, breakOnError:true}
+  , async:true
+
+  desc 'Minify client side styles'
+  task 'style', ->
+    cmd = "#{paths.npmbin}/cleancss -o #{paths.style.minified} #{paths.style.compiled}"
+    log 'Minifying client side CSS...', 'task'
+    run [cmd], 'Minified successfully', {printStderr:true, breakOnError:true}
   , async:true
 
 
