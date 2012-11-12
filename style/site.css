@@ -875,6 +875,9 @@ hr,
   display: block;
   text-align: center;
 }
+.quiet {
+  color: #8e8e8e;
+}
 /* src/object/expander */
 .expander.is-expanded .expander-detail,
 .expander.is-expanded .when-is-expanded,

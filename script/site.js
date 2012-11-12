@@ -4,14 +4,15 @@
         var settings = {
             input: '[data-role="input"]',
             output: '[data-role="output"]',
-            overflow: '[data-role="overflow"]'
+            overflow: '[data-role="overflow"]',
+            placeholder: '[data-role="placeholder"]'
         };
 
         var control = $(this);
         var input = control.find(settings.input).eq(0);
         var output = control.find(settings.output).eq(0);
         var overflow = control.find(settings.overflow).eq(0);
-        var initial = output.html();
+        var placeholder = control.find(settings.placeholder).eq(0);
 
         var feedback = function(event) {
             event.preventDefault();
@@ -20,10 +21,11 @@
 
             if (key.code.special.esc === pressed) {
                 overflow.html('');
-                output.html(initial);
+                output.html(placeholder);
             } else {
                 var href = 'https://github.com/adlawson/key/issues/new?';
                     href += 'title=Key%20' + event.which + '%20wasn%27t%20recognised';
+                placeholder.remove();
                 overflow.html($.trim(output.html() + "\n" + overflow.html()));
                 output.html(pressed ? JSON.stringify(pressed) : 'Key undefined. <a href="' + href + '">Submit an issue!</a>');
             }
