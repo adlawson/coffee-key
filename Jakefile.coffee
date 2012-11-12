@@ -31,7 +31,7 @@ task 'ci', ->
 
 # Compile
 desc 'Compile client side'
-task 'compile', ['compile:script', 'compile:style']
+task 'compile', ['compile:style']
 namespace 'compile', ->
 
   desc 'Compile client side JavaScript'
@@ -51,7 +51,7 @@ namespace 'compile', ->
 
 # Minify
 desc 'Minify client side'
-task 'minify', ['minify:script', 'minify:style']
+task 'minify', ['minify:style']
 namespace 'minify', ->
 
   desc 'Minify client side JavaScript'

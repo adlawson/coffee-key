@@ -7,14 +7,83 @@
 </head>
 <body>
 
-    <div class="header">
+    <div class="header region">
         <div class="grid">
 
             <h1>Key</h1>
-            <cite>Andrew Lawson</cite>
+            <h3>A tiny little keycode assertion library</h3>
 
         </div>
     </div>
+
+    <div class="main region">
+        <div class="grid">
+
+            <div class="section" data-control="demo">
+                <input type="text" placeholder="Start typing&hellip;" autofocus data-role="input"/>
+
+                <div class="expander is-not-expanded" data-control="expander">
+
+                    <pre><span data-role="output"></span><span class="expander-detail" data-role="overflow"></span></pre>
+
+                    <small class="hint when-is-not-expanded"><kbd title="Control/Apple Command">Ctrl/&#8984;</kbd> &amp; <kbd title="Down arrow">&dArr;</kbd> to see more. <kbd title="Escape">Esc</kbd> to clear.</small>
+                    <small class="hint when-is-expanded"><kbd title="Control/Apple Command">Ctrl/&#8984;</kbd> &amp; <kbd title="Down arrow">&uArr;</kbd> to see less. <kbd title="Escape">Esc</kbd> to clear.</small>
+
+                </div>
+            </div>
+
+            <div class="section">
+                <h4>Example</h4>
+                <p>Here&#39;s how <em>key</em> can work together with a DOM query library like jQuery to navigate through a (pseudo) image gallery.</p>
+                <pre><code>var gallery = new GalleryOfAwesome();
+
+$(window).on('keyup', function(event) {
+    if (key.is(key.code.arrow.left, event.which)) {
+        gallery.navigateLeft();
+    } else if (key.is(key.code.arrow.right, event.which)) {
+        gallery.navigateRight();
+    } else if (key.is(key.code.special.esc, event.which)) {
+        gallery.close();
+    }
+});</code></pre>
+            </div>
+
+            <div class="section">
+                <h4>Usage</h4>
+                <pre><code>var key = window.key; // In browser
+var key = require('key'); // Or package manager</code></pre>
+            </div>
+
+            <div class="section">
+                <h4>Installation</h4>
+                <ul>
+                    <li><code>npm install key</code></li>
+                    <li><a href="https://github.com/adlawson/key">View project on <strong>github</strong></a></li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h4>Issues</h4>
+                <p>To report a bug, <a href="https://github.com/adlawson/key/issues">submit an issue on our <strong>github</strong> repository</a>.
+                If you&#39;re feeling extra generous, please <a href="https://github.com/adlawson/key/pulls">submit a patch via a <strong>pull request</strong></a>.</p>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="footer region">
+        <div class="grid">
+
+            <p>Released under the <a href="http://www.opensource.org/licenses/mit">MIT License</a> by <a href="https://github.com/adlawson">Andrew Lawson</a></p>
+
+        </div>
+    </div>
+
+    <script src="http://raw.github.com/adlawson/key/master/client/key.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+    <script src="script/site.js"></script>
+    <script type="text/javascript">$('[data-control="demo"]').demo()</script>
+    <script type="text/javascript">$('[data-control="expander"]').expander()</script>
 
 </body>
 </html>

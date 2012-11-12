@@ -1,1 +1,83 @@
 /* src/variables */
+
+
+// Typography
+// =========================================================
+
+// Body sizes
+@type-size-primary: 16px;
+@type-line-height-primary: 24px;
+@type-size-secondary: 14px;
+@type-line-height-secondary: @type-line-height-primary;
+@type-size-tertiary: 12px;
+@type-line-height-tertiary: 16px;
+
+// Heading sizes
+@type-size-heading-primary: 32px;
+@type-line-height-heading-primary: 40px;
+@type-size-heading-secondary: @type-line-height-primary;
+@type-line-height-heading-secondary: 32px;
+@type-size-heading-tertiary: 18px;
+@type-line-height-heading-tertiary: @type-line-height-primary;
+
+// Faces
+@type-face-body: 'Lucida Grande', 'Lucida Sans', 'Lucida Sans Unicode', sans-serif;
+@type-face-heading: @type-face-body;
+@type-face-code: Courier, 'Courier New', monospace;
+@type-face-input: @type-face-code;
+
+// Lists
+@list-indent: 32px;
+@list-marker-color: @type-color-secondary;
+
+// Spacing
+@spacing-primary: @type-line-height-primary; //24px
+@spacing-secondary: 16px;
+@spacing-tertiary: 8px;
+
+
+// Forms
+// =========================================================
+
+@input-border-default: @input-border-focus;
+@input-border-focus: 1px solid #ccc;
+@input-background-color: #f8f8f8;
+@input-background-color-focus: #f8f8f8;
+@input-inset-shadow-color: #a1a7ac;
+
+@type-size-forms: @type-size-primary;
+
+
+// Colours
+// =========================================================
+
+@type-color-primary: #1b1b1b;
+@type-color-secondary: #8e8e8e;
+
+// Link colours
+@type-color-link: #166288;
+@type-color-link-visited: #50748a;
+
+// Presentational colours
+@container-shadow-color: rgba(0, 0, 0, .3);
+@modal-shadow-color: rgba(0, 0, 0, .5);
+@container-background-color: #f6f7f8;
+@container-border-color: #dce2e6;
+
+// Error Handling
+@color-success: #a2e500;
+@color-success-light: lighten(@color-success, 42%);
+@color-notice: #f4b400;
+@color-notice-light: lighten(@color-notice, 42%);
+@color-error: #d95a5a;
+@color-error-light: lighten(@color-error, 34%);
+
+// Selection colours
+@type-color-selection: #ccc;
+
+
+// Vendors
+// =========================================================
+@frag-max-width: 800px;
+@frag-ie7-width: 800px;
+@frag-break-tablet: 800px;

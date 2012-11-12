@@ -1,0 +1,169 @@
+/* src/typography */
+
+html {
+    .type.root();
+}
+body{
+    color: @type-color-primary;
+}
+
+p, h6, h5, h4, h3, h2, h1, blockquote, dl, figure, legend, ol, ul, hr, pre, table {
+    .type.margin(@spacing-primary, @spacing-primary);
+}
+
+// Body copy styles
+body, .body-primary, .body-secondary, .body-tertiary {
+    font-family: @type-face-body;
+    font-weight: normal;
+}
+body, .body-primary {
+    .type.font-size(@type-size-primary);
+    .type.line-height(@type-line-height-primary);
+}
+.body-secondary {
+    .type.font-size(@type-size-secondary);
+    .type.line-height(@type-line-height-secondary);
+}
+.body-tertiary {
+    .type.font-size(@type-size-tertiary);
+    .type.line-height(@type-line-height-tertiary);
+}
+
+// Heading styles
+h6, h5, h4, h3, h2, h1, legend, .heading-primary,
+.heading-secondary, .heading-tertiary {
+    font-family: @type-face-heading;
+    font-weight: bold;
+}
+h6, h5, h4, .heading-tertiary {
+    .type.font-size(@type-size-heading-tertiary);
+    .type.line-height(@type-line-height-heading-tertiary);
+}
+h3, h2, legend, .heading-secondary {
+    .type.font-size(@type-size-heading-secondary);
+    .type.line-height(@type-line-height-heading-secondary);
+}
+h1, .heading-primary {
+    .type.font-size(@type-size-heading-primary);
+    .type.line-height(@type-line-height-heading-primary);
+}
+
+// Small element styles
+figcaption, small, sub, sup {
+    font-size: .8em; // conscious use of `em` here, you busy-body
+}
+
+// Colours
+.color-primary {
+    color: @type-color-primary;
+}
+.color-secondary {
+    color: @type-color-secondary;
+}
+.color-link {
+    color: @type-color-link;
+}
+
+// Links
+a, .a-like {
+    color: @type-color-link;
+    font-size: 1em; // use of `em` intentional, this fixes `.a-like` styling for
+                    // buttons which have their own font-size specified.
+    cursor: pointer;
+    text-decoration: none;
+
+    &:hover, &:focus {
+        text-decoration: underline;
+    }
+
+    &:visited {
+        color: @type-color-link-visited;
+    }
+}
+
+// Lists
+ol, ul {
+    padding-left: @list-indent;
+}
+ol, ul, dl {
+    p, h6, .h6, h5, .h5, h4, .h4, h3, .h3, h2, .h2, h1, .h1,
+    blockquote, dl, figure, legend, ol, ul, hr, pre, table {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+}
+
+// Unordered lists
+ul li::marker {
+    color: @list-marker-color;
+}
+ul li::-moz-list-bullet {
+    color: @list-marker-color;
+}
+
+// Ordered lists
+ol ol {
+    list-style: lower-alpha;
+}
+
+// Quotes
+q {
+    font-style: italic;
+    color: @type-color-secondary;
+    &:before {
+        content: "“";
+    }
+    &:after {
+        content: "”";
+    }
+}
+
+// Code
+pre, code {
+    font-family: @type-face-code;
+    font-size: @type-size-secondary;
+    padding: 0 4px;
+    background-color: #f8f8f8;
+    border: 1px solid #ccc;
+    .border-radius(2px);
+    overflow: hidden;
+}
+pre, pre code {
+    padding: 8px;
+    display: block;
+}
+pre code {
+    border: none;
+    padding: 0;
+}
+kbd {
+    background: @input-background-color;
+    border: @input-border-default;
+    border-bottom: 2px #aaa solid;
+    border-right: 2px #aaa solid;
+    .border-radius(2px);
+    padding: 4px;
+}
+
+// Rules
+hr {
+    height: 0;
+    clear: both;
+    border: none;
+    color: transparent;
+}
+hr, .ruled {
+    border-bottom: 1px solid #ccc;
+}
+.ruled {
+    padding-bottom: @type-line-height-primary;
+}
+
+.not-padded {
+    margin-bottom: 0;
+}
+
+.hint {
+    display: block;
+    text-align: center;
+}

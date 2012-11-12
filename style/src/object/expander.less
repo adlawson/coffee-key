@@ -1,0 +1,14 @@
+/* src/object/expander */
+
+.expander {
+    &.is-expanded .expander-detail,
+    &.is-expanded .when-is-expanded,
+    &.is-not-expanded .when-is-not-expanded {
+        display: block;
+    }
+    &.is-not-expanded .expander-detail,
+    &.is-not-expanded .when-is-expanded,
+    &.is-expanded .when-is-not-expanded {
+        display: none;
+    }
+}

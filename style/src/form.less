@@ -1,0 +1,190 @@
+/* src/form */
+
+// Fieldset
+fieldset {
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+// Legends
+legend {
+    width: 100%; // Note: legends don't do `width: auto;`
+    margin-top: 0;
+    margin-bottom: 0;
+
+    // 'Small-print'
+    small {
+        .type.font-size(@type-size-secondary);
+        font-weight: normal;
+        color: @type-color-secondary;
+        display: block;
+    }
+
+    // Fix: Ensures margin is applied to any element that follows legend in Safari/Chrome
+    &+ * {
+        -webkit-margin-top-collapse : separate;
+    }
+}
+
+// Fields (general)
+.field {
+    .type.margin(@spacing-secondary, @spacing-secondary);
+}
+
+// 'Required' indicator (shared between legend and field)
+legend, .field {
+    .required {
+        .inline-block();
+        color: @color-success;
+        font-size: 26px;
+        line-height: 26px;
+        height: 16px;
+        overflow: hidden;
+    }
+}
+
+// Fields (specific)
+.field.buttons {
+    text-align: right;
+
+    .button, button, input[type='button'],  button[type='submit'], input[type='submit'], input[type='reset'] {
+        margin-left: @spacing-secondary;
+    }
+}
+
+// Labels (general)
+label {
+    display: block;
+    .type.font-size(@type-size-forms);
+    .type.margin(5px, 5px);
+
+    .description {
+        color: @type-color-secondary;
+
+        &:before {
+            content: "(";
+        }
+        &:after {
+            content: ")";
+        }
+    }
+}
+
+// Inputs (general)
+button, input, select, textarea {
+    font-family: @type-face-input;
+    .type.font-size(@type-size-forms);
+    color: @type-color-primary;
+}
+::-webkit-input-placeholder {
+    color: @type-color-secondary;
+}
+input:-moz-placeholder, textarea:-moz-placeholder {
+    color: @type-color-secondary;
+}
+
+// Inputs with 100% width
+input[type="email"], input[type="password"], input[type="search"], input[type="tel"],
+input[type="text"], input[type="url"], select[multiple], textarea {
+    width: 100%;
+    *width: 95%; // IE 6+7
+    .box-sizing(border-box);
+    display: block;
+}
+
+// Inputs with standard borders and spacing
+input[type="email"], input[type="password"], input[type="search"], input[type="tel"],
+input[type="text"], input[type="url"], select, textarea, .fake-input-text {
+    .type.margin(5px, 5px);
+    padding:  8px;
+    background-color: @input-background-color;
+
+    // Note: borders here used as well as shadows. This is
+    // to prevent layout shifting when the input is focused
+    // which has a full border. Also, this means that the
+    // inputs still look acceptable in browsers with no
+    // shadow support
+    border: @input-border-default;
+    border-top-color: @input-inset-shadow-color;
+    .border-radius(2px);
+    .box-shadow(inset 0 1px 1px @input-inset-shadow-color);
+    .transition(all .3s);
+
+    &:focus {
+        background-color: @input-background-color-focus;
+        border: 1px solid #ccc;
+        outline: none;
+        .box-shadow(none);
+    }
+    &:disabled {
+        color: @type-color-secondary;
+        .opacity(.4);
+
+        &::-webkit-input-placeholder {
+            color: @type-color-secondary;
+        }
+        &input:-moz-placeholder, textarea:-moz-placeholder {
+            color: @type-color-secondary;
+        }
+    }
+    &.inline {
+        .inline-block();
+    }
+}
+
+// Text inputs
+textarea {
+    min-height: 90px;
+    resize: vertical;
+}
+
+// Select inputs
+select {
+    border: @input-border-default;
+    .type.margin(5px, 5px);
+    padding: 5px;
+    display: block;
+    background: #fff;
+    .box-shadow(none);
+}
+select[multiple] {
+    min-height: 75px;
+    resize: vertical;
+}
+
+// Radio and Checkbox inputs
+input[type='checkbox'], input[type='radio'] {
+    margin-right: 5px;
+}
+
+// Buttons
+button, button[type='submit'], input[type='button'], input[type='reset'], input[type='submit'] {
+    &.a-like {
+        color: @type-color-link;
+        cursor: pointer;
+        display: inline;
+        background: none;
+        border: none;
+        font-weight: inherit;
+
+        &:hover, &:focus {
+            text-decoration: underline;
+        }
+
+        &:visited {
+            color: @type-color-link-visited;
+        }
+    }
+}
+
+// 'other actions'
+.other-actions {
+    display: block;
+    .type.font-size(@type-size-tertiary);
+    color: @type-color-secondary;
+
+    a {
+        color: @type-color-secondary;
+    }
+}
