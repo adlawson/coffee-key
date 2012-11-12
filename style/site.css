@@ -834,7 +834,7 @@ code {
   -webkit-border-radius: 2px;
   -moz-border-radius: 2px;
   border-radius: 2px;
-  overflow: hidden;
+  overflow: auto;
 }
 pre,
 pre code {
