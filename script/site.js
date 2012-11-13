@@ -54,7 +54,7 @@
         var overflow = control.find(settings.overflow).eq(0);
 
         $(window).on('keydown', function(event) {
-            if (key.is(key.code.special.ctrl, event.which)) {
+            if (key.is(key.code.special.ctrl, event.which) || key.is(key.code.brand.apple, event.which)) {
                 modified = true;
             } else if (modified === true && key.is(key.code.arrow.down, event.which)) {
                 event.preventDefault();
