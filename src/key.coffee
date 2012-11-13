@@ -22,6 +22,7 @@ ns.code =
   special: require './code/special'
   arrow: require './code/arrow'
   alnum: require './code/alnum'
+  brand: require './code/brand'
 
 
 # Get pressed key information

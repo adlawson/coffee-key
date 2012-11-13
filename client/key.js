@@ -524,6 +524,26 @@ require.define("/code/alnum.coffee",function(require,module,exports,__dirname,__
 
 });
 
+require.define("/code/brand.coffee",function(require,module,exports,__dirname,__filename,process,global){(function() {
+  'use strict';
+
+  var ref;
+
+  ref = require('../ref').ref;
+
+  module.exports = {
+    apple: ref('Apple &#8984;', 224),
+    windows: {
+      left: ref('Windows start', 91),
+      right: ref('Windows start', 92),
+      menu: ref('Windows menu', 93)
+    }
+  };
+
+}).call(this);
+
+});
+
 require.define("/key.coffee",function(require,module,exports,__dirname,__filename,process,global){(function() {
   'use strict';
 
@@ -538,7 +558,8 @@ require.define("/key.coffee",function(require,module,exports,__dirname,__filenam
   ns.code = {
     special: require('./code/special'),
     arrow: require('./code/arrow'),
-    alnum: require('./code/alnum')
+    alnum: require('./code/alnum'),
+    brand: require('./code/brand')
   };
 
   ns.get = function(pressed) {
