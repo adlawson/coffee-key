@@ -1,52 +1,43 @@
 #Key
 
-Key is a tiny little keycode library for your browser. It makes keybound event assertions super simple.
+**Key** is a tiny little keycode library for your browser. It makes keybound event assertions super simple.
 
 [![Build Status](https://secure.travis-ci.org/adlawson/key.png)](http://travis-ci.org/adlawson/key)
 
+###Example
 
-## Installation
-
-**Browser**
-
-To use Key without a package manager in-browser, copy/link
-to `client/key.js` or `client/key.min.js` and start using.
-
-**NPM**
-
-Just install with `npm install key` or add it to your `package.json`
-
-
-## Usage
-
-Key is bound to the `window` object, so usage in the browser is simple
+Here's how **key** can work together with a DOM query library like [jQuery][jquery] to navigate through a [pseudo] image gallery.
 
 ```js
-var key = window.key
+var gallery = new GalleryOfAwesome();
+
+$(window).on('keyup', function(event) {
+    if (key.is(key.code.arrow.left, event.which)) {
+        gallery.navigateLeft();
+    } else if (key.is(key.code.arrow.right, event.which)) {
+        gallery.navigateRight();
+    } else if (key.is(key.code.special.esc, event.which)) {
+        gallery.close();
+    }
+});
 ```
 
-Key will also work fine with a dependency manager like [Browserify][browserify] (both Javascript and CoffeeScript).
+###Usage
 
 ```js
-var key = require('key')
+var key = window.key; // In browser
+var key = require('key'); // Or package manager
 ```
 
+###Installation
 
-## Example
+ - `npm install key`
+ - `<script src="path/to/vendors/adlawson/key/client/key.min.js"></script>`
 
-```js
-pressed = 13; // An event keycode (eg jQuery.event.which)
-
-key.get(pressed).name; // "Enter"
-key.is(key.code.special.enter, pressed); // true
-key.is(key.code.alnum.a, pressed); // false
-```
-
-
-## License
+###License
 The content of this library is released under the **MIT License** by **Andrew Lawson**.<br>
 You can find a copy of this license at http://www.opensource.org/licenses/mit
 
 
 <!-- Meta -->
-[browserify]: http://github.com/substack/node-browserify
+[jquery]: http://jquery.com
