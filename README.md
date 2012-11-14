@@ -22,6 +22,19 @@ $(window).on('keyup', function(event) {
 });
 ```
 
+You can even use it to limit the keypresses allowed in a form field
+
+```js
+var input = $('input[type="text"]');
+
+input.on('keydown', function (event) {
+    if (!key.is(key.code.alnum, event.which)) {
+        event.preventDefault();
+        window.alert('Alphanumeric characters only!');
+    }
+});
+```
+
 ###Usage
 
 ```js
