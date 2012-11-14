@@ -30,14 +30,7 @@ ns.code =
 # @param [Number] pressed
 # @return [Reference]
 ns.get = (pressed) =>
-  iterator = (context) ->
-    for own key, ref of context
-      if isRef ref
-        return ref if ns.is ref, pressed
-      else
-        out = iterator ref
-        return out if isRef out
-  iterator ns.code
+  iterator ns.code, pressed
 
 
 # Compare a pressed key against a reference
@@ -46,7 +39,26 @@ ns.get = (pressed) =>
 # @param [Number] pressed
 # @return [Boolean]
 ns.is = (ref, pressed) =>
-  pressed is assertRef(ref).code
+  unless isRef ref
+    ref = iterator ref, pressed
+  if isRef pressed
+    pressed is ref
+  else
+    pressed is ref.code
+
+
+# Key code iterator
+#
+# @param [Object] context
+# @param [Number] pressed
+# @param [Reference]
+iterator = (context, pressed) ->
+  for own key, ref of context
+    if isRef ref
+      return ref if ns.is ref, pressed
+    else
+      out = iterator ref, pressed
+      return out if isRef out
 
 
 # Exports

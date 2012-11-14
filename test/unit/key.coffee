@@ -62,3 +62,39 @@ suite 'key:', ->
 
     test '4 is baz.d', ->
       assert.isTrue (key.is key.code.baz.d, 4)
+
+    test '1 is in key.code', ->
+      assert.isTrue (key.is key.code, 1)
+
+    test '2 is in key.code', ->
+      assert.isTrue (key.is key.code, 2)
+
+    test '3 is in key.code', ->
+      assert.isTrue (key.is key.code, 3)
+
+    test '4 is in key.code', ->
+      assert.isTrue (key.is key.code, 4)
+
+    test 'key.get 1 is foo.a', ->
+      assert.isTrue (key.is key.code.foo.a, key.get 1)
+
+    test 'key.get 2 is foo.b', ->
+      assert.isTrue (key.is key.code.foo.b, key.get 2)
+
+    test 'key.get 3 is foo.bar.c', ->
+      assert.isTrue (key.is key.code.foo.bar.c, key.get 3)
+
+    test 'key.get 4 is baz.d', ->
+      assert.isTrue (key.is key.code.baz.d, key.get 4)
+
+    test 'key.get 1 is in key.code', ->
+      assert.isTrue (key.is key.code, key.get 1)
+
+    test 'key.get 2 is in key.code', ->
+      assert.isTrue (key.is key.code, key.get 2)
+
+    test 'key.get 3 is in key.code', ->
+      assert.isTrue (key.is key.code, key.get 3)
+
+    test 'key.get 4 is in key.code', ->
+      assert.isTrue (key.is key.code, key.get 4)

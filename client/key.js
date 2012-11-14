@@ -547,7 +547,7 @@ require.define("/code/brand.coffee",function(require,module,exports,__dirname,__
 require.define("/key.coffee",function(require,module,exports,__dirname,__filename,process,global){(function() {
   'use strict';
 
-  var assertRef, isRef, ns, _ref,
+  var assertRef, isRef, iterator, ns, _ref,
     _this = this,
     __hasProp = {}.hasOwnProperty;
 
@@ -563,29 +563,36 @@ require.define("/key.coffee",function(require,module,exports,__dirname,__filenam
   };
 
   ns.get = function(pressed) {
-    var iterator;
-    iterator = function(context) {
-      var key, out, ref;
-      for (key in context) {
-        if (!__hasProp.call(context, key)) continue;
-        ref = context[key];
-        if (isRef(ref)) {
-          if (ns.is(ref, pressed)) {
-            return ref;
-          }
-        } else {
-          out = iterator(ref);
-          if (isRef(out)) {
-            return out;
-          }
-        }
-      }
-    };
-    return iterator(ns.code);
+    return iterator(ns.code, pressed);
   };
 
   ns.is = function(ref, pressed) {
-    return pressed === assertRef(ref).code;
+    if (!isRef(ref)) {
+      ref = iterator(ref, pressed);
+    }
+    if (isRef(pressed)) {
+      return pressed === ref;
+    } else {
+      return pressed === ref.code;
+    }
+  };
+
+  iterator = function(context, pressed) {
+    var key, out, ref;
+    for (key in context) {
+      if (!__hasProp.call(context, key)) continue;
+      ref = context[key];
+      if (isRef(ref)) {
+        if (ns.is(ref, pressed)) {
+          return ref;
+        }
+      } else {
+        out = iterator(ref, pressed);
+        if (isRef(out)) {
+          return out;
+        }
+      }
+    }
   };
 
   if (typeof window !== 'undefined') {
