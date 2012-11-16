@@ -10,15 +10,15 @@
 
 
 # Dependencies
-{isRef, assertRef} = require './ref'
+{isRef} = require './ref'
 
 
 # Namespace
-ns = {}
+key = {}
 
 
 # Keycodes
-ns.code =
+key.code =
   special: require './code/special'
   arrow: require './code/arrow'
   alnum: require './code/alnum'
@@ -29,8 +29,8 @@ ns.code =
 #
 # @param [Number] pressed
 # @return [Reference]
-ns.get = (pressed) =>
-  iterator ns.code, pressed
+key.get = (pressed) =>
+  iterator key.code, pressed
 
 
 # Compare a pressed key against a reference
@@ -38,13 +38,15 @@ ns.get = (pressed) =>
 # @param [Reference] ref
 # @param [Number] pressed
 # @return [Boolean]
-ns.is = (ref, pressed) =>
+key.is = (ref, pressed) =>
   unless isRef ref
     ref = iterator ref, pressed
   if isRef pressed
     pressed is ref
-  else
+  else if isRef ref
     pressed is ref.code
+  else
+    false
 
 
 # Key code iterator
@@ -53,14 +55,14 @@ ns.is = (ref, pressed) =>
 # @param [Number] pressed
 # @param [Reference]
 iterator = (context, pressed) ->
-  for own key, ref of context
+  for own i, ref of context
     if isRef ref
-      return ref if ns.is ref, pressed
+      return ref if key.is ref, pressed
     else
       out = iterator ref, pressed
       return out if isRef out
 
 
 # Exports
-window.key = ns if typeof window isnt 'undefined'
-module.exports = ns
+window.key = key if typeof window isnt 'undefined'
+module.exports = key

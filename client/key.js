@@ -547,43 +547,45 @@ require.define("/code/brand.coffee",function(require,module,exports,__dirname,__
 require.define("/key.coffee",function(require,module,exports,__dirname,__filename,process,global){(function() {
   'use strict';
 
-  var assertRef, isRef, iterator, ns, _ref,
+  var isRef, iterator, key,
     _this = this,
     __hasProp = {}.hasOwnProperty;
 
-  _ref = require('./ref'), isRef = _ref.isRef, assertRef = _ref.assertRef;
+  isRef = require('./ref').isRef;
 
-  ns = {};
+  key = {};
 
-  ns.code = {
+  key.code = {
     special: require('./code/special'),
     arrow: require('./code/arrow'),
     alnum: require('./code/alnum'),
     brand: require('./code/brand')
   };
 
-  ns.get = function(pressed) {
-    return iterator(ns.code, pressed);
+  key.get = function(pressed) {
+    return iterator(key.code, pressed);
   };
 
-  ns.is = function(ref, pressed) {
+  key.is = function(ref, pressed) {
     if (!isRef(ref)) {
       ref = iterator(ref, pressed);
     }
     if (isRef(pressed)) {
       return pressed === ref;
-    } else {
+    } else if (isRef(ref)) {
       return pressed === ref.code;
+    } else {
+      return false;
     }
   };
 
   iterator = function(context, pressed) {
-    var key, out, ref;
-    for (key in context) {
-      if (!__hasProp.call(context, key)) continue;
-      ref = context[key];
+    var i, out, ref;
+    for (i in context) {
+      if (!__hasProp.call(context, i)) continue;
+      ref = context[i];
       if (isRef(ref)) {
-        if (ns.is(ref, pressed)) {
+        if (key.is(ref, pressed)) {
           return ref;
         }
       } else {
@@ -596,10 +598,10 @@ require.define("/key.coffee",function(require,module,exports,__dirname,__filenam
   };
 
   if (typeof window !== 'undefined') {
-    window.key = ns;
+    window.key = key;
   }
 
-  module.exports = ns;
+  module.exports = key;
 
 }).call(this);
 

@@ -75,6 +75,9 @@ suite 'key:', ->
     test '4 is in key.code', ->
       assert.isTrue (key.is key.code, 4)
 
+    test '5 is not in key.code', ->
+      assert.isFalse (key.is key.code, 5)
+
     test 'key.get 1 is foo.a', ->
       assert.isTrue (key.is key.code.foo.a, key.get 1)
 
