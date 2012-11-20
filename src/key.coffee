@@ -45,7 +45,7 @@ key.is = (ref, pressed) =>
     if isRef pressed
       pressed is ref
     else
-      pressed is ref.code
+      pressed is ref.code or pressed in ref.code
   else
     pressed is ref
 

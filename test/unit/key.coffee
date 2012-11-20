@@ -18,7 +18,7 @@ suite 'key:', ->
         }
       }
       baz: {
-        d: mockRef 'd', 4
+        d: mockRef 'd', [4,5]
       }
 
 
@@ -49,6 +49,12 @@ suite 'key:', ->
     test '4 is baz.d', ->
       assert.strictEqual key.code.baz.d, (key.get 4)
 
+    test '5 is baz.d', ->
+      assert.strictEqual key.code.baz.d, (key.get 5)
+
+    test '6 is undefined', ->
+      assert.strictEqual undefined, (key.get 6)
+
 
   suite 'is:', ->
     test '1 is foo.a', ->
@@ -63,6 +69,9 @@ suite 'key:', ->
     test '4 is baz.d', ->
       assert.isTrue (key.is key.code.baz.d, 4)
 
+    test '5 is baz.d', ->
+      assert.isTrue (key.is key.code.baz.d, 5)
+
     test '1 is in key.code', ->
       assert.isTrue (key.is key.code, 1)
 
@@ -75,8 +84,11 @@ suite 'key:', ->
     test '4 is in key.code', ->
       assert.isTrue (key.is key.code, 4)
 
-    test '5 is not in key.code', ->
-      assert.isFalse (key.is key.code, 5)
+    test '5 is in key.code', ->
+      assert.isTrue (key.is key.code, 5)
+
+    test '6 is not in key.code', ->
+      assert.isFalse (key.is key.code, 6)
 
     test 'key.get 1 is foo.a', ->
       assert.isTrue (key.is key.code.foo.a, key.get 1)
@@ -90,6 +102,9 @@ suite 'key:', ->
     test 'key.get 4 is baz.d', ->
       assert.isTrue (key.is key.code.baz.d, key.get 4)
 
+    test 'key.get 5 is baz.d', ->
+      assert.isTrue (key.is key.code.baz.d, key.get 5)
+
     test 'key.get 1 is in key.code', ->
       assert.isTrue (key.is key.code, key.get 1)
 
@@ -101,3 +116,6 @@ suite 'key:', ->
 
     test 'key.get 4 is in key.code', ->
       assert.isTrue (key.is key.code, key.get 4)
+
+    test 'key.get 5 is in key.code', ->
+      assert.isTrue (key.is key.code, key.get 5)

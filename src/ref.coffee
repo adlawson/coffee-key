@@ -16,14 +16,14 @@ class Reference
   # Setup the reference
   #
   # @param [String] name
-  # @param [Number] code
+  # @param [Number|Array] code
   constructor: (@name, @code) ->
 
 
 # Create a new reference
 #
 # @param [String] name
-# @param [Number] code
+# @param [Number|Array] code
 # @return [Reference]
 ref = (name, code) ->
   new Reference name, code

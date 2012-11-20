@@ -549,6 +549,7 @@ require.define("/key.coffee",function(require,module,exports,__dirname,__filenam
 
   var isRef, iterator, key,
     _this = this,
+    __indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; },
     __hasProp = {}.hasOwnProperty;
 
   isRef = require('./ref').isRef;
@@ -574,7 +575,7 @@ require.define("/key.coffee",function(require,module,exports,__dirname,__filenam
       if (isRef(pressed)) {
         return pressed === ref;
       } else {
-        return pressed === ref.code;
+        return pressed === ref.code || __indexOf.call(ref.code, pressed) >= 0;
       }
     } else {
       return pressed === ref;
