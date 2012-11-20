@@ -13,8 +13,8 @@
 {ref} = require '../ref'
 
 
-# Exports
-module.exports = {
+# Definitions
+brand = {
 
   apple: ref 'Apple &#8984;', 224
 
@@ -23,3 +23,7 @@ module.exports = {
     right: ref 'Windows start', 92
     menu:  ref 'Windows menu',  93
 }
+
+
+# Exports
+module.exports = brand

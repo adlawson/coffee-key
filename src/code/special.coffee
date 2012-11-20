@@ -13,8 +13,8 @@
 {ref} = require '../ref'
 
 
-# Exports
-module.exports = {
+# Definitions
+special = {
 
   backspace: ref 'Backspace',   8
   tab:       ref 'Tab',         9
@@ -28,3 +28,7 @@ module.exports = {
   num:       ref 'Num Lock',  144
 
 }
+
+
+# Exports
+module.exports = special

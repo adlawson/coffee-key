@@ -435,11 +435,11 @@ require.define("/ref.coffee",function(require,module,exports,__dirname,__filenam
 require.define("/code/special.coffee",function(require,module,exports,__dirname,__filename,process,global){(function() {
   'use strict';
 
-  var ref;
+  var ref, special;
 
   ref = require('../ref').ref;
 
-  module.exports = {
+  special = {
     backspace: ref('Backspace', 8),
     tab: ref('Tab', 9),
     enter: ref('Enter', 13),
@@ -452,6 +452,8 @@ require.define("/code/special.coffee",function(require,module,exports,__dirname,
     num: ref('Num Lock', 144)
   };
 
+  module.exports = special;
+
 }).call(this);
 
 });
@@ -459,16 +461,18 @@ require.define("/code/special.coffee",function(require,module,exports,__dirname,
 require.define("/code/arrow.coffee",function(require,module,exports,__dirname,__filename,process,global){(function() {
   'use strict';
 
-  var ref;
+  var arrow, ref;
 
   ref = require('../ref').ref;
 
-  module.exports = {
+  arrow = {
     left: ref('Left', 37),
     up: ref('Up', 38),
     right: ref('Right', 39),
     down: ref('Down', 40)
   };
+
+  module.exports = arrow;
 
 }).call(this);
 
@@ -477,11 +481,11 @@ require.define("/code/arrow.coffee",function(require,module,exports,__dirname,__
 require.define("/code/alnum.coffee",function(require,module,exports,__dirname,__filename,process,global){(function() {
   'use strict';
 
-  var ref;
+  var alnum, ref;
 
   ref = require('../ref').ref;
 
-  module.exports = {
+  alnum = {
     '0': ref('0', 48),
     '1': ref('1', 49),
     '2': ref('2', 50),
@@ -520,6 +524,8 @@ require.define("/code/alnum.coffee",function(require,module,exports,__dirname,__
     z: ref('Z', 90)
   };
 
+  module.exports = alnum;
+
 }).call(this);
 
 });
@@ -527,11 +533,11 @@ require.define("/code/alnum.coffee",function(require,module,exports,__dirname,__
 require.define("/code/brand.coffee",function(require,module,exports,__dirname,__filename,process,global){(function() {
   'use strict';
 
-  var ref;
+  var brand, ref;
 
   ref = require('../ref').ref;
 
-  module.exports = {
+  brand = {
     apple: ref('Apple &#8984;', 224),
     windows: {
       left: ref('Windows start', 91),
@@ -539,6 +545,8 @@ require.define("/code/brand.coffee",function(require,module,exports,__dirname,__
       menu: ref('Windows menu', 93)
     }
   };
+
+  module.exports = brand;
 
 }).call(this);
 

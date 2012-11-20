@@ -13,8 +13,8 @@
 {ref} = require '../ref'
 
 
-# Exports
-module.exports = {
+# Definitions
+alnum = {
 
   '0': ref '0', 48
   '1': ref '1', 49
@@ -55,3 +55,7 @@ module.exports = {
   z:   ref 'Z', 90
 
 }
+
+
+# Exports
+module.exports = alnum

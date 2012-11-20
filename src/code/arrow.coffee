@@ -13,8 +13,8 @@
 {ref} = require '../ref'
 
 
-# Exports
-module.exports = {
+# Definitions
+arrow = {
 
   left:  ref 'Left',  37
   up:    ref 'Up',    38
@@ -22,3 +22,7 @@ module.exports = {
   down:  ref 'Down',  40
 
 }
+
+
+# Exports
+module.exports = arrow
