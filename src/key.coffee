@@ -41,12 +41,13 @@ key.get = (pressed) =>
 key.is = (ref, pressed) =>
   unless isRef ref
     ref = iterator ref, pressed
-  if isRef pressed
-    pressed is ref
-  else if isRef ref
-    pressed is ref.code
+  if isRef ref
+    if isRef pressed
+      pressed is ref
+    else
+      pressed is ref.code
   else
-    false
+    pressed is ref
 
 
 # Key code iterator

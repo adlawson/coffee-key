@@ -570,12 +570,14 @@ require.define("/key.coffee",function(require,module,exports,__dirname,__filenam
     if (!isRef(ref)) {
       ref = iterator(ref, pressed);
     }
-    if (isRef(pressed)) {
-      return pressed === ref;
-    } else if (isRef(ref)) {
-      return pressed === ref.code;
+    if (isRef(ref)) {
+      if (isRef(pressed)) {
+        return pressed === ref;
+      } else {
+        return pressed === ref.code;
+      }
     } else {
-      return false;
+      return pressed === ref;
     }
   };
 
