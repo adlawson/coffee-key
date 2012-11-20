@@ -540,8 +540,7 @@ require.define("/code/brand.coffee",function(require,module,exports,__dirname,__
   brand = {
     apple: ref('Apple &#8984;', 224),
     windows: {
-      left: ref('Windows start', 91),
-      right: ref('Windows start', 92),
+      start: ref('Windows start', [91, 92]),
       menu: ref('Windows menu', 93)
     }
   };

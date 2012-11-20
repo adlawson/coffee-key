@@ -26,11 +26,11 @@ suite 'code:', ->
           assert.isTrue isRef ref
 
   suite 'brand:', ->
-    test 'apple key is a reference', ->
+    test 'apple is a reference', ->
       assert.isTrue isRef code.brand.apple
 
     suite 'windows:', ->
       for key, ref of code.brand.windows
         do (key, ref) ->
-          test "#{key} key is a reference", ->
+          test "#{key} is a reference", ->
             assert.isTrue isRef ref
