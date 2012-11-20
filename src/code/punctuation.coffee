@@ -22,17 +22,17 @@ punctuation = {
   hyphen:     ref 'Hyphen/Underscore',   [45, 109, 189]
   period:     ref 'Period/Greater Than', [46, 190]
   tilde:      ref 'Tilde/Back Tick',     [96, 192]
-  apostrophe: ref 'Apostrophe/Quote',    [96, 192]
+  apostrophe: ref 'Apostrophe/Quote',    [39, 222]
 
   slash: {
     forward:  ref 'Forward Slash/Question Mark', [47, 191]
-    backward: ref 'Backward Slash/Pipe',         [92, 220]
+    backward: ref 'Backward Slash/Pipe', 220
   }
 
   brace: {
     square: {
-       open:  ref 'Open Square/Curly Brace',  [91, 219]
-       close: ref 'Close Square/Curly Brace', [93, 221]
+       open:  ref 'Open Square/Curly Brace',  219
+       close: ref 'Close Square/Curly Brace', 221
     }
   }
 
