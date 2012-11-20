@@ -40,3 +40,18 @@ suite 'code:', ->
 
     suite 'windows:', ->
       testCollection code.brand.windows
+
+  suite 'punctuation:', ->
+    for key, ref of code.punctuation
+      if ref not in [code.punctuation.brace, code.punctuation.slash]
+        testRef key, ref
+
+    suite 'brace:', ->
+      suite 'square:', ->
+        testCollection code.punctuation.brace.square
+
+      suite 'curly:', ->
+        testCollection code.punctuation.brace.curly
+
+    suite 'slash:', ->
+      testCollection code.punctuation.slash

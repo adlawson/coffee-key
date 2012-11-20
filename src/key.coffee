@@ -21,6 +21,7 @@ key = {}
 key.code =
   special: require './code/special'
   arrow: require './code/arrow'
+  punctuation: require './code/punctuation'
   alnum: require './code/alnum'
   brand: require './code/brand'
 
