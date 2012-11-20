@@ -6,31 +6,37 @@
 {code} = require '../../src/key'
 
 
+# Test refs in a collection
+#
+# @param [Object] collection
+# @param [Function] fn
+testCollection = (collection, fn = testRef) ->
+  for key, ref of collection
+    fn key, ref
+
+
+# Test a ref
+#
+# @param [String] name
+# @param [Reference] ref
+testRef = (name, ref) ->
+  test "#{name} is a reference", ->
+    assert.isTrue isRef ref
+
+
+# Tests
 suite 'code:', ->
   suite 'alnum:', ->
-    for key, ref of code.alnum
-      do (key, ref) ->
-        test "#{key} is a reference", ->
-          assert.isTrue isRef ref
+    testCollection code.alnum
 
   suite 'arrow:', ->
-    for key, ref of code.arrow
-      do (key, ref) ->
-        test "#{key} is a reference", ->
-          assert.isTrue isRef ref
+    testCollection code.arrow
 
   suite 'special:', ->
-    for key, ref of code.special
-      do (key, ref) ->
-        test "#{key} is a reference", ->
-          assert.isTrue isRef ref
+    testCollection code.special
 
   suite 'brand:', ->
-    test 'apple is a reference', ->
-      assert.isTrue isRef code.brand.apple
+    testRef 'apple', code.brand.apple
 
     suite 'windows:', ->
-      for key, ref of code.brand.windows
-        do (key, ref) ->
-          test "#{key} is a reference", ->
-            assert.isTrue isRef ref
+      testCollection code.brand.windows
