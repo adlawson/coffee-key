@@ -3,17 +3,19 @@
 # Dependencies
 colors = require 'colors'
 {exec} = require 'child_process'
+fs = require 'fs'
 path = require 'path'
 
 
 # Paths
 paths =
   bootstrap: './src/key.coffee'
-  bundled:   './client/key.js'
+  bundled:   './build/key.js'
+  build:     './build'
   config:    './test/config'
   integration: './test/integration'
   lib:       './lib'
-  minified:  './client/key.min.js'
+  minified:  './build/key.min.js'
   npmbin:    './node_modules/.bin'
   src:       './src'
   unit:      './test/unit'
@@ -37,6 +39,8 @@ task 'ci', ['lint', 'test']
 # Bundle
 desc 'Bundle client side JavaScript'
 task 'bundle', ->
+  fs.exists paths.build, ->
+    fs.mkdir paths.build, 0o0775
   cmd = "#{paths.npmbin}/browserify -o #{paths.bundled} #{paths.bootstrap}"
   log 'Bundling client side...', 'task'
   run [cmd], 'Bundled successfully', {printStderr:true, breakOnError:true}
@@ -63,7 +67,7 @@ task 'lint', ->
 
 # Minify
 desc 'Minify client side Javascript'
-task 'minify', ->
+task 'minify', ['bundle'], ->
   cmd = "#{paths.npmbin}/uglifyjs --lift-vars -o #{paths.minified} #{paths.bundled}"
   log 'Minifying client side...', 'task'
   run [cmd], 'Minified successfully', {printStderr:true, breakOnError:true}

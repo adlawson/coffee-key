@@ -1,4 +1,4 @@
 lib
 node_modules
 npm-debug.log
-client/key.js
+build/key.js

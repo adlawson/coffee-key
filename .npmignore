@@ -3,4 +3,4 @@ Jakefile.coffee
 node_modules
 npm-debug.log
 test
-client
+build
