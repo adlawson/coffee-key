@@ -22,15 +22,15 @@ $(window).on('keyup', function(event) {
 });
 ```
 
-You can even use it to limit the keypresses allowed in a form field
+You can even assert against a collection of keys, not just a specific key.
 
 ```js
 var input = $('input[type="text"]');
 
 input.on('keydown', function (event) {
-    if (!key.is(key.code.alnum, event.which)) {
+    if (key.is(key.code.punctuation, event.which)) {
         event.preventDefault();
-        window.alert('Alphanumeric characters only!');
+        window.alert('No punctuation allowed!');
     }
 });
 ```
