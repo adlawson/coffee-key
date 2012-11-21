@@ -72,24 +72,6 @@ suite 'key:', ->
     test '5 is baz.d', ->
       assert.isTrue (key.is key.code.baz.d, 5)
 
-    test '1 is in key.code', ->
-      assert.isTrue (key.is key.code, 1)
-
-    test '2 is in key.code', ->
-      assert.isTrue (key.is key.code, 2)
-
-    test '3 is in key.code', ->
-      assert.isTrue (key.is key.code, 3)
-
-    test '4 is in key.code', ->
-      assert.isTrue (key.is key.code, 4)
-
-    test '5 is in key.code', ->
-      assert.isTrue (key.is key.code, 5)
-
-    test '6 is not in key.code', ->
-      assert.isFalse (key.is key.code, 6)
-
     test 'key.get 1 is foo.a', ->
       assert.isTrue (key.is key.code.foo.a, key.get 1)
 
@@ -105,17 +87,54 @@ suite 'key:', ->
     test 'key.get 5 is baz.d', ->
       assert.isTrue (key.is key.code.baz.d, key.get 5)
 
-    test 'key.get 1 is in key.code', ->
-      assert.isTrue (key.is key.code, key.get 1)
 
-    test 'key.get 2 is in key.code', ->
-      assert.isTrue (key.is key.code, key.get 2)
+    suite 'collection:', ->
+      test '1 is in key.code', ->
+        assert.isTrue (key.is key.code, 1)
 
-    test 'key.get 3 is in key.code', ->
-      assert.isTrue (key.is key.code, key.get 3)
+      test '2 is in key.code', ->
+        assert.isTrue (key.is key.code, 2)
 
-    test 'key.get 4 is in key.code', ->
-      assert.isTrue (key.is key.code, key.get 4)
+      test '3 is in key.code', ->
+        assert.isTrue (key.is key.code, 3)
 
-    test 'key.get 5 is in key.code', ->
-      assert.isTrue (key.is key.code, key.get 5)
+      test '4 is in key.code', ->
+        assert.isTrue (key.is key.code, 4)
+
+      test '5 is in key.code', ->
+        assert.isTrue (key.is key.code, 5)
+
+      test '6 is not in key.code', ->
+        assert.isFalse (key.is key.code, 6)
+
+      test 'key.get 1 is in key.code', ->
+        assert.isTrue (key.is key.code, key.get 1)
+
+      test 'key.get 2 is in key.code', ->
+        assert.isTrue (key.is key.code, key.get 2)
+
+      test 'key.get 3 is in key.code', ->
+        assert.isTrue (key.is key.code, key.get 3)
+
+      test 'key.get 4 is in key.code', ->
+        assert.isTrue (key.is key.code, key.get 4)
+
+      test 'key.get 5 is in key.code', ->
+        assert.isTrue (key.is key.code, key.get 5)
+
+
+    suite 'array:', ->
+      test '1 is in [foo.a, foo.bar.c, baz.d]', ->
+        assert.isTrue (key.is [key.code.foo.a, key.code.foo.bar.c, key.code.baz.d], 1)
+
+      test '3 is in [foo.a, foo.bar.c, baz.d]', ->
+        assert.isTrue (key.is [key.code.foo.a, key.code.foo.bar.c, key.code.baz.d], 3)
+
+      test '4 is in [foo.a, foo.bar.c, baz.d]', ->
+        assert.isTrue (key.is [key.code.foo.a, key.code.foo.bar.c, key.code.baz.d], 4)
+
+      test '5 is in [foo.a, foo.bar.c, baz.d]', ->
+        assert.isTrue (key.is [key.code.foo.a, key.code.foo.bar.c, key.code.baz.d], 5)
+
+      test '2 is not in [foo.a, foo.bar.c, baz.d]', ->
+        assert.isFalse (key.is [key.code.foo.a, key.code.foo.bar.c, key.code.baz.d], 2)
