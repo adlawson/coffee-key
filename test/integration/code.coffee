@@ -32,6 +32,9 @@ suite 'code:', ->
   suite 'arrow:', ->
     testCollection code.arrow
 
+  suite 'keypad:', ->
+    testCollection code.keypad
+
   suite 'special:', ->
     testCollection code.special
 

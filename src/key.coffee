@@ -20,10 +20,11 @@ key = {}
 # Keycodes
 key.code =
   special: require './code/special'
-  arrow: require './code/arrow'
+  arrow:   require './code/arrow'
   punctuation: require './code/punctuation'
-  alnum: require './code/alnum'
-  brand: require './code/brand'
+  alnum:   require './code/alnum'
+  keypad:  require './code/keypad'
+  brand:   require './code/brand'
 
 
 # Get pressed key information
