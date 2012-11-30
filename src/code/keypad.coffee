@@ -11,6 +11,7 @@
 
 # Dependencies
 {ref} = require '../ref'
+enter = require './special'
 
 
 # Definitions
@@ -32,6 +33,8 @@ keypad = {
   minus:    ref 'Minus',         109
   decimal:  ref 'Decimal point', 110
   divide:   ref 'Divide',        111
+
+  enter:    special.enter
 
 }
 
