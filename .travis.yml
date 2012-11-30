@@ -14,3 +14,8 @@ script: ./node_modules/.bin/jake ci
 # Notifications
 notifications:
   email: false
+
+# Branches
+branches:
+  only:
+   - master
