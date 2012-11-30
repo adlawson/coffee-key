@@ -1,7 +1,9 @@
 # Language/versions
 language: node_js
 node_js:
+ - 0.9
  - 0.8
+ - 0.6
 
 # Install (quieten npm)
 install: npm install --silent
@@ -12,3 +14,8 @@ script: ./node_modules/.bin/jake ci
 # Notifications
 notifications:
   email: false
+
+# Branches
+branches:
+  only:
+   - master
