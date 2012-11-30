@@ -10,12 +10,10 @@ path = require 'path'
 # Paths
 paths =
   bootstrap: './src/key.coffee'
-  bundled:   './build/key.js'
-  build:     './build'
   config:    './test/config'
   integration: './test/integration'
   lib:       './lib'
-  minified:  './build/key.min.js'
+  minified:  './key.min.js'
   npmbin:    './node_modules/.bin'
   src:       './src'
   unit:      './test/unit'
@@ -28,7 +26,7 @@ task 'default', ['build']
 
 # Build
 desc 'Build the project'
-task 'build', ['lint', 'test', 'compile', 'bundle', 'minify']
+task 'build', ['lint', 'test', 'compile', 'bundle']
 
 
 # CI build
@@ -39,9 +37,7 @@ task 'ci', ['lint', 'test']
 # Bundle
 desc 'Bundle client side JavaScript'
 task 'bundle', ->
-  fs.exists paths.build, ->
-    fs.mkdir paths.build, 0o0775
-  cmd = "#{paths.npmbin}/browserify -o #{paths.bundled} #{paths.bootstrap}"
+  cmd = "#{paths.npmbin}/browserify #{paths.bootstrap} | #{paths.npmbin}/uglifyjs --lift-vars -o #{paths.minified}"
   log 'Bundling client side...', 'task'
   run [cmd], 'Bundled successfully', {printStderr:true, breakOnError:true}
 , async:true
@@ -62,15 +58,6 @@ task 'lint', ->
   cmd = "#{paths.npmbin}/coffeelint -rf #{paths.config}/coffeelint.json #{paths.src}/** #{paths.unit}/**"
   log 'Linting source...', 'task'
   run [cmd], 'Linted successfully', {printStderr:true, printStdout:true, breakOnError:false}
-, async:true
-
-
-# Minify
-desc 'Minify client side Javascript'
-task 'minify', ['bundle'], ->
-  cmd = "#{paths.npmbin}/uglifyjs --lift-vars -o #{paths.minified} #{paths.bundled}"
-  log 'Minifying client side...', 'task'
-  run [cmd], 'Minified successfully', {printStderr:true, breakOnError:true}
 , async:true
 
 

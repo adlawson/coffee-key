@@ -45,7 +45,7 @@ var key = require('key'); // Or package manager
 ###Installation
 
  - `npm install key`
- - `<script src="path/to/key/build/key.min.js"></script>`
+ - `<script src="path/to/key/key.min.js"></script>`
 
 ###License
 The content of this library is released under the **MIT License** by **Andrew Lawson**.<br>
