@@ -25,6 +25,7 @@ special = {
   caps:      ref 'Caps Lock',  20
   esc:       ref 'Escape',     27
   space:     ref 'Space',      32
+  delete:    ref 'Delete',     46
   num:       ref 'Num Lock',  144
 
 }
